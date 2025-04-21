@@ -1,38 +1,29 @@
-import { AxiosError, AxiosRequestConfig, AxiosResponse } from "axios";
-import axios from "./axios";
+import { AxiosRequestConfig } from "axios";
+import axios from "./axios.config";
 
 export default class Client {
-  private static async request<T>(
-    method: "get" | "post" | "put" | "patch" | "delete",
+  static async get<T>(url: string, options?: AxiosRequestConfig<unknown>) {
+    const response = await axios.get<T>(url, options);
+    return response.data;
+  }
+  static async post<T>(
     url: string,
     data?: unknown,
-    options?: AxiosRequestConfig
-  ): Promise<T> {
-    try {
-      let response: AxiosResponse<T>;
-
-      switch (method) {
-        case "get":
-        case "delete":
-          response = await axios[method]<T>(url, options);
-          break;
-
-        case "post":
-        case "put":
-        case "patch":
-          response = await axios[method]<T>(url, data, options);
-          break;
-      }
-
-      return response.data;
-    } catch (error) {
-      const err = error as Error | AxiosError;
-
-      if (err && "response" in err) {
-        const axiosError = err as AxiosError;
-        const status = axiosError.response?.status;
-        const message = axiosError.response?.data as unknown;
-      }
-    }
+    options?: AxiosRequestConfig<unknown>
+  ) {
+    const response = await axios.post<T>(url, data, options);
+    return response.data;
+  }
+  static async put<T>(url: string, data?: unknown) {
+    const response = await axios.put<T>(url, data);
+    return response.data;
+  }
+  static async patch<T>(url: string, data: unknown) {
+    const response = await axios.patch<T>(url, data);
+    return response.data;
+  }
+  static async delete<T>(url: string, options?: AxiosRequestConfig<unknown>) {
+    const response = await axios.delete<T>(url, options);
+    return response.data;
   }
 }
