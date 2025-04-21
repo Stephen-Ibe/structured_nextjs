@@ -1,9 +1,10 @@
 import { useQuery } from "@tanstack/react-query";
 import { getUsersApi } from "../clients";
 
-export const useGetUsersQuery = () =>
-  useQuery({
+export const useGetUsersQuery = () => {
+  return useQuery({
     queryFn: getUsersApi,
     queryKey: ["users"],
-    enabled: false,
+    staleTime: 5 * 1000,
   });
+};
