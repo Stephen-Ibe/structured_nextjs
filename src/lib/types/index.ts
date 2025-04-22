@@ -21,3 +21,8 @@ export type TGetUsers = {
     bs: string;
   };
 };
+
+export type TCreateUser = {
+  id: number;
+  name: string;
+};
