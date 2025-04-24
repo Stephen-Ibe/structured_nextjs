@@ -5,5 +5,4 @@ import { createUserApi } from "../clients";
 export const useCreateUserMutation = () =>
   useMutation({
     mutationFn: (data: TCreateUser) => createUserApi(data),
-    onSuccess: () => {},
   });
