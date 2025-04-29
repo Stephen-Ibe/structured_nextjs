@@ -5,8 +5,9 @@ import { useCreateUserMutation } from "@/lib/api/mutations";
 
 export default function Home() {
   const { data: allUsers } = useGetUsersQuery();
-  const { mutateAsync: createUser } = useCreateUserMutation();
   const { data: allTodos } = useGetAllTodosQuery(!!allUsers);
+
+  const { mutateAsync: createUser } = useCreateUserMutation();
 
   return (
     <div className="container mx-auto">
@@ -29,7 +30,9 @@ export default function Home() {
           <h1>All Todos</h1>
           <hr />
           {allTodos?.map(({ id, title }) => (
-            <div key={id}>{title}</div>
+            <div key={id} className="capitalize">
+              {title}
+            </div>
           ))}
         </div>
       </div>
