@@ -33,3 +33,10 @@ export type TGetTodos = {
   title: string;
   completed: boolean;
 };
+
+export type TGetPosts = {
+  userId: number;
+  id: number;
+  title: string;
+  body: string;
+};

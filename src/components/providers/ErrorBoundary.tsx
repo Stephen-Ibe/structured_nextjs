@@ -1,7 +1,8 @@
+"use client";
+
 import { Component, ReactNode } from "react";
 
 type ErrorBoundaryProps = {
-  fallback: ReactNode;
   children: ReactNode;
 };
 
@@ -21,7 +22,17 @@ class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
 
   render() {
     if (this.state.hasError) {
-      return this.props.fallback;
+      return (
+        <div>
+          <h2>Oops, Something went wrong!</h2>
+          <button
+            type="button"
+            onClick={() => this.setState({ hasError: false })}
+          >
+            Try again
+          </button>
+        </div>
+      );
     }
 
     return this.props.children;

@@ -10,6 +10,7 @@ export const TanstackProvider = ({ children }: { children: ReactNode }) => {
         defaultOptions: {
           queries: {
             staleTime: 60 * 1000,
+          
           },
         },
       })

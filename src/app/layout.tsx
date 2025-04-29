@@ -29,9 +29,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <ErrorBoundary
-          fallback={<div className="text-red-500">Error loading users</div>}
-        >
+        <ErrorBoundary>
           <TanstackProvider>{children} </TanstackProvider>
         </ErrorBoundary>
       </body>

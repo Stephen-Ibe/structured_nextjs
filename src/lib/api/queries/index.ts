@@ -1,5 +1,5 @@
-import { TGetTodos, TGetUsers } from "@/lib/types";
-import { useQuery, useSuspenseQuery } from "@tanstack/react-query";
+import { TGetPosts, TGetTodos, TGetUsers } from "@/lib/types";
+import { useQuery } from "@tanstack/react-query";
 import { getAllPostsApi, getAllTodosApi, getUsersApi } from "../clients";
 
 export const useGetUsersQuery = () =>
@@ -16,8 +16,9 @@ export const useGetAllTodosQuery = (enabled: boolean = true) =>
     enabled,
   });
 
-export const useGetAllPostsQuery = () =>
-  useSuspenseQuery({
+export const useGetAllPostsQuery = (enabled: boolean = true) =>
+  useQuery<TGetPosts[]>({
     queryFn: getAllPostsApi,
     queryKey: ["posts"],
+    enabled,
   });
