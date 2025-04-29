@@ -7,10 +7,11 @@ export default function Home() {
   const { data: allUsers } = useGetUsersQuery();
   const { mutateAsync: createUser } = useCreateUserMutation();
   const { data: allTodos } = useGetAllTodosQuery(!!allUsers);
+  // useGetAllPostsQuery();
 
   return (
-    <>
-      <div className="grid grid-cols-2 py-4 w-fit mx-auto">
+    <div className="container mx-auto">
+      <div className="grid grid-cols-3 py-4 w-fit mx-auto">
         <div className="border p-4 flex flex-col gap-y-2">
           <h1>All Users</h1>
           <hr />
@@ -26,13 +27,18 @@ export default function Home() {
         </div>
 
         <div className="border p-4 flex flex-col gap-y-2">
-          <h1>All Posts</h1>
+          <h1>All Todos</h1>
           <hr />
           {allTodos?.map(({ id, title }) => (
             <div key={id}>{title}</div>
           ))}
         </div>
+
+        <div className="border p-4 flex flex-col gap-y-2">
+          <h1>All Posts</h1>
+          <hr />
+        </div>
       </div>
-    </>
+    </div>
   );
 }

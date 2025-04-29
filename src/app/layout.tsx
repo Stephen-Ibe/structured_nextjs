@@ -1,3 +1,4 @@
+import { ErrorBoundary } from "@/components";
 import { TanstackProvider } from "@/components/providers/tanstack-provider";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
@@ -28,7 +29,11 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <TanstackProvider>{children} </TanstackProvider>
+        <ErrorBoundary
+          fallback={<div className="text-red-500">Error loading users</div>}
+        >
+          <TanstackProvider>{children} </TanstackProvider>
+        </ErrorBoundary>
       </body>
     </html>
   );

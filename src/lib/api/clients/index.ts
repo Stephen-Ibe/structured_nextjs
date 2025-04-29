@@ -12,3 +12,7 @@ export const createUserApi = async (user: TCreateUser) => {
 export const getAllTodosApi = async () => {
   return await Client.get<TGetTodos[]>("todos");
 };
+
+export const getAllPostsApi = async () => {
+  return await Client.get<TGetTodos[]>("posts");
+};
