@@ -16,9 +16,12 @@ export const useGetAllTodosQuery = (enabled: boolean = true) =>
     enabled,
   });
 
-export const useGetAllPostsQuery = (enabled: boolean = true) =>
+export const useGetAllPostsQuery = (
+  enabled: boolean = true,
+  options?: { id: number }
+) =>
   useQuery<TGetPosts[]>({
-    queryFn: getAllPostsApi,
-    queryKey: ["posts"],
+    queryFn: () => getAllPostsApi(options?.id),
+    queryKey: ["posts", options?.id],
     enabled,
   });

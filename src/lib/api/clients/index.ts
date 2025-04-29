@@ -13,6 +13,7 @@ export const getAllTodosApi = async () => {
   return await Client.get<TGetTodos[]>("todos");
 };
 
-export const getAllPostsApi = async () => {
-  return await Client.get<TGetPosts[]>("posts");
+export const getAllPostsApi = async (id?: number) => {
+  const url = id ? `posts/${id}` : `posts`;
+  return await Client.get<TGetPosts[]>(url);
 };

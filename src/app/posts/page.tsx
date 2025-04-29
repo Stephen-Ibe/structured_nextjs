@@ -1,6 +1,7 @@
 "use client";
 
 import { useGetAllPostsQuery } from "@/lib";
+import Link from "next/link";
 
 const Posts = () => {
   const { data: allPosts } = useGetAllPostsQuery();
@@ -12,7 +13,7 @@ const Posts = () => {
         <hr />
         {allPosts?.map(({ id, title }) => (
           <div key={id} className="capitalize">
-            {title}
+            <Link href={`posts/${id}`}>{title}</Link>
           </div>
         ))}
       </div>
