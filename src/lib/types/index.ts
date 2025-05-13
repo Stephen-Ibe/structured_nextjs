@@ -40,3 +40,7 @@ export type TGetPosts = {
   title: string;
   body: string;
 };
+
+export type PostsResponseType<T> = T extends { id: number | string }
+  ? TGetPosts
+  : TGetPosts[];
