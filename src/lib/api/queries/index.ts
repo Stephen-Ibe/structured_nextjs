@@ -1,4 +1,8 @@
-import { PostsResponseType, TGetTodos, TGetUsers } from "@/lib/types";
+import {
+  PostsResponseType,
+  TGetTodos,
+  TGetUsers,
+} from "@/lib/types/users.types";
 import { useQuery } from "@tanstack/react-query";
 import { getAllPostsApi, getAllTodosApi, getUsersApi } from "../clients";
 

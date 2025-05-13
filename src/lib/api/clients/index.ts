@@ -1,5 +1,10 @@
 import { Client } from "@/lib/config";
-import { TCreateUser, TGetPosts, TGetTodos, TGetUsers } from "@/lib/types";
+import {
+  TCreateUser,
+  TGetPosts,
+  TGetTodos,
+  TGetUsers,
+} from "@/lib/types/users.types";
 
 export const getUsersApi = async () => {
   return await Client.get<TGetUsers[]>("users");
