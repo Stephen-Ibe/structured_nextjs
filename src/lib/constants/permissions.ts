@@ -1,5 +1,5 @@
 export const ROLES = {
-  admin: ["view:users", "create:user", "update:user", "delete:user"],
-  moderator: ["view:users", "create:user", "delete:user"],
-  user: ["view:comments", "create:user"],
+  admin: ["view:posts", "create:post", "update:post", "delete:post"],
+  moderator: ["view:posts", "create:post", "delete:post"],
+  user: ["view:comments"],
 } as const;
