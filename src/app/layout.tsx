@@ -1,5 +1,5 @@
-import { ErrorBoundary } from "@/components";
-import { TanstackProvider } from "@/components/providers/tanstack-provider";
+import { ErrorBoundary } from "@/lib";
+import { TanstackProvider } from "@/lib/providers/tanstack-provider";
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";

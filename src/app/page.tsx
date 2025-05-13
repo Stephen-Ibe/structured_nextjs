@@ -1,7 +1,10 @@
 "use client";
 
-import { useGetAllTodosQuery, useGetUsersQuery } from "@/lib";
-import { useCreateUserMutation } from "@/lib/api/mutations";
+import {
+  useCreateUserMutation,
+  useGetAllTodosQuery,
+  useGetUsersQuery,
+} from "@/lib";
 
 export default function Home() {
   const { data: allUsers } = useGetUsersQuery();
